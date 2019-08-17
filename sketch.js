@@ -1,14 +1,26 @@
-//Creates Div elements within HTML container 
+//variables
+const sideBlock = 64;
+
+
+
+//Creates Div container within HTML  
 const container = document.querySelector(".container");
-var i = 0;
-var fragment = document.createDocumentFragment();
 
-while (i < 16) {
-    divAdd = document.createElement("div");
-    divAdd.innerText = "test" + i;
-    fragment.appendChild(divAdd);
-i++}
 
-container.appendChild(fragment);
+//Create specified amount of Divs within container 
+function gridInit (n) {
+    var i = 0;
+    while (i < (n*n)) {
+        const divAdd = document.createElement("div");
+        divAdd.classList.add("item");
+        container.appendChild(divAdd);
+    i++}
+    container.setAttribute('style', `grid: repeat(${n}, auto) / repeat(${n}, auto)`);
+}
+
+
+
+gridInit(sideBlock);
+
 
 
